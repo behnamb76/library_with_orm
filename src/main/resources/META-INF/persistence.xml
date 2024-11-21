@@ -2,13 +2,19 @@
 <persistence xmlns="http://java.sun.com/xml/ns/persistence" version="2.0">
     <persistence-unit name="jdbc-postgres">
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+        <class>ir.maktabsharif.model.BaseModel</class>
+        <class>ir.maktabsharif.model.Book</class>
+        <class>ir.maktabsharif.model.Genre</class>
+        <class>ir.maktabsharif.model.User</class>
+        <class>ir.maktabsharif.model.Librarian</class>
+        <class>ir.maktabsharif.model.LibraryMember</class>
         <properties>
             <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/library_with_orm"/>
             <property name="javax.persistence.jdbc.user" value="postgres"/>
             <property name="javax.persistence.jdbc.password" value="1376b1376"/>
             <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect"/>
             <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver"/>
-            <property name="hibernate.hbm2ddl.auto" value="create"/>
+            <property name="hibernate.hbm2ddl.auto" value="update"/>
         </properties>
     </persistence-unit>
 </persistence>
