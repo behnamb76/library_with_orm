@@ -1,15 +1,14 @@
 package ir.maktabsharif.repository.impls;
 
 import ir.maktabsharif.exceptions.NotFoundException;
+import ir.maktabsharif.model.Book;
 import ir.maktabsharif.model.Genre;
 import ir.maktabsharif.repository.GenreRepository;
 import ir.maktabsharif.util.EntityManagerProvider;
 
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Root;
+import javax.persistence.criteria.*;
 import java.util.List;
 import java.util.Optional;
 
@@ -75,11 +74,7 @@ public class GenreRepositoryImpl implements GenreRepository {
 
     @Override
     public List<Genre> findAllGenresHaveBook() {
-        CriteriaBuilder cb = em.getCriteriaBuilder();
-        CriteriaQuery<Genre> cq = cb.createQuery(Genre.class);
-        Root<Genre> root = cq.from(Genre.class);
-        cq.select(root);
-        cq.where(cb.isNotEmpty(root.get("books")));
-        return em.createQuery(cq).getResultList();
+        TypedQuery<Genre> query = em.createQuery("SELECT g FROM Genre g WHERE SIZE(g.books) > 0", Genre.class);
+        return query.getResultList();
     }
 }

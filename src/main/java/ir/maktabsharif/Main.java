@@ -38,18 +38,18 @@ public class Main {
 //        libraryMember.setNationalCode("222");
 //        libraryMemberRepository.add(libraryMember);
 
-//        Genre genre = Genre.builder()
-//                .id(3L)
-//                .name("Cooking")
-//                .category(Category.NONFICTION).build();
-//        Book book = Book.builder()
-//                .title("Persian food")
-//                .isbn("111")
-//                .author("ali ahmadi")
-//                .numberOfPages(150)
-//                .publishedDate(new Date(2010 - 1900, 6 - 1, 10))
-//                .genre(genre).build();
-//        bookRepository.add(book);
+        Genre genre = Genre.builder()
+                .id(6L)
+                .name("si-fi")
+                .category(Category.FICTION).build();
+        Book book = Book.builder()
+                .title("Dune")
+                .isbn("222")
+                .author("Frank Herbert")
+                .numberOfPages(200)
+                .publishedDate(new Date(2010 - 1900, 6 - 1, 10))
+                .genre(genre).build();
+        bookRepository.add(book);
 
         Menu.runProgram();
     }

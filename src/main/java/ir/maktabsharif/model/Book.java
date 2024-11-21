@@ -12,7 +12,6 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 @SuperBuilder
-@ToString
 @Table(name = "books")
 public class Book extends BaseModel{
     private String title;
@@ -29,4 +28,5 @@ public class Book extends BaseModel{
     @ManyToOne
     @JoinColumn(name = "fk_genre")
     private Genre genre;
+
 }
